@@ -1,8 +1,47 @@
 # Lungo
 
-A standalone footer for [Pi](https://github.com/earendil-works/pi), extracted from [Expresso](https://github.com/nervouna/expresso). It leaves tool rendering unchanged.
+[![Release](https://img.shields.io/github/v/release/nervouna/lungo)](https://github.com/nervouna/lungo/releases/latest)
+![Pi extension](https://img.shields.io/badge/Pi-extension-lightgrey)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The footer shows the project and Git branch, model and thinking level, token totals, cache hit rate, average output tokens per second, and context usage. It keeps extension status messages below the footer and switches to a single project/model line when the terminal is too narrow.
+<!-- banner -->
+
+Lungo is a footer for the [Pi](https://github.com/earendil-works/pi) coding agent's terminal interface. It shows the project and Git branch, model and thinking level, token totals, cache hit rate, average output tokens per second, and context usage. It leaves tool rendering unchanged.
+
+<!-- screenshots -->
+
+## Status
+
+Lungo is a personal project, used daily by its author. It was extracted from [Expresso](https://github.com/nervouna/expresso), which no longer has a footer of its own. It is tested with `@earendil-works/pi-coding-agent` 1.0.2 and is not meant for the older `@mariozechner` packages; other Pi versions may differ. The package declares Node.js 22.19 or later. Nerd Font icons are optional and need a Nerd Font in the terminal.
+
+Releases are source only: Pi installs the extension straight from this repository, with no build step.
+
+See also [Expresso](https://github.com/nervouna/expresso), which collapses tool calls in Pi's transcript into one-line summaries. See [CONTRIBUTING.md](CONTRIBUTING.md) to report a bug or send a fix, and [SECURITY.md](SECURITY.md) for security problems.
+
+## Install
+
+```sh
+pi install git:github.com/nervouna/lungo
+```
+
+Restart Pi or run `/reload` to load the extension.
+
+## Update and remove
+
+```sh
+pi update --extension git:github.com/nervouna/lungo
+pi remove git:github.com/nervouna/lungo
+```
+
+Run `/reload` or restart Pi afterwards. Removing Lungo leaves its hidden throughput entries in existing sessions.
+
+## Layout
+
+The footer keeps extension status messages below itself and switches to a single project/model line when the terminal is too narrow.
+
+## Data and network
+
+Lungo makes no network requests and reads no files of its own. The project name, Git branch, model, token usage and context usage all come from Pi. It reads its settings through Pi and, while the footer is on, writes one hidden `lungo:request-throughput` entry per completed model request to the current session, holding the output token count and the request time.
 
 ## Try it
 
@@ -35,7 +74,7 @@ Add optional settings to `~/.pi/agent/settings.json` or your project's `.pi/sett
 
 Set `nerdFonts` to `true` if your terminal uses a Nerd Font. Otherwise the footer uses text labels and Unicode symbols. Set `footer` to `false` to disable the footer and throughput collection. Run `/reload` after changing settings.
 
-If you also use Expresso, leave its footer disabled (`"expresso": { "footer": false }`). Pi has one custom footer slot, so enabling both makes them compete for it. Lungo does not read Expresso's settings.
+Current Expresso has no footer, so the two work together. Older Expresso versions had their own footer; if you run one of those, turn it off with `"expresso": { "footer": false }`, because Pi has one custom footer slot. Lungo does not read Expresso's settings.
 
 ## Metrics
 
