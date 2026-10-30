@@ -4,11 +4,11 @@
 ![Pi extension](https://img.shields.io/badge/Pi-extension-lightgrey)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-<!-- banner -->
+![Lungo](docs/images/banner.jpg)
 
 Lungo is a footer for the [Pi](https://github.com/earendil-works/pi) coding agent's terminal interface. It shows the project and Git branch, model and thinking level, token totals, cache hit rate, average output tokens per second, and context usage. It leaves tool rendering unchanged.
 
-<!-- screenshots -->
+![A Pi session with the Lungo footer: folder, branch, model, tokens, cache hit rate, throughput and context use](docs/images/session.png)
 
 ## Status
 
